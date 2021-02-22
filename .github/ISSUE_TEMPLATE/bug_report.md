@@ -5,15 +5,7 @@ title: ''
 labels: bug-unconfirmed, question
 assignees: ''
 
----
 
-<!-- Before posting your issue please check if your question is answered in one of the following places: 
-
-    * msal-browser@2.x FAQ: https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-browser/FAQ.md
-    * msal@1.x FAQ: https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-core/docs/FAQ.md
-
-    Please follow the issue template below. Failure to do so will result in a delay in answering your question.
--->
 
 ## Library
 <!-- ⚠️ Please try the latest published version and fill in your exact version number below e.g. `msal@2.7.0`. ⚠️ -->
@@ -22,17 +14,21 @@ assignees: ''
 - [ ] `@azure/msal-node@1.x.x`
 - [ ] `@azure/msal-react@1.x.x`
 - [ ] `@azure/msal-angular@0.x.x`
-- [ ] `@azure/msal-angular@1.x.x`
+- [X] `@azure/msal-angular@1.x.x`
 - [ ] `@azure/msal-angular@2.x.x`
 - [ ] `@azure/msal-angularjs@1.x.x`
 
 ## Framework
 <!-- ⚠️ If using a framework please specify which version you are using e.g. Angular 11 or React 17 ⚠️ -->
-- [ ] Angular
+- [X] Angular
 - [ ] React
 - [ ] Other
 
 ## Description
+
+We have multiple websites running under the same domain when switching between these websites the token is not refreshed as MSALGuard does not seem to validate the Aud claim and that it matches the ClientId. In our particular environment we hold roles in the token, we go to Website-A and the token will hold the roles for the required user and application in the token, however when we switch to Website-B the token is not refreshed and is still that for Website-A with its roles. We have a workaround by creating a new gaurd which checks the toekns aud claim against the clientid of the app and if not the same issues a login refreshing the toekn so it matches that for the website.
+
+
 
 ## Error Message
 <!-- Please provide the error message, stack trace and/or logs here-->
@@ -51,11 +47,11 @@ assignees: ''
 // For Azure B2C issues, please include your policies.
 ```
 
-## Expected behavior
+## MSAL Should Check Aud Claim of Token
 
 ## Identity Provider
 
-- [ ] Azure AD
+- [X] Azure AD
 - [ ] Azure B2C Basic Policy
 - [ ] Azure B2C Custom Policy
 - [ ] ADFS
@@ -63,7 +59,7 @@ assignees: ''
 
 ## Browsers/Environment
 
-- [ ] Chrome
+- [X] Chrome
 - [ ] Firefox
 - [ ] Edge
 - [ ] Safari
@@ -72,12 +68,12 @@ assignees: ''
 
 ## Regression
 
-- [ ] Did this behavior work before?
+- [N] 
 Version:
 
 ## Security
 
-- [ ] Is this issue security related?
+- [Y] Is this issue security related?
 
 ## Source
 
